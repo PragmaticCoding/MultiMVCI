@@ -8,7 +8,13 @@ This is the companion project to the article: http://www.pragmaticcoding.ca/mult
 
 Many programmers seem to have difficulty envisioning how to construct a more complex application that has a number of different screens which are accessed via buttons or menu options, or simply contained within other layouts.  Particularly, programmers have find sharing data between different functions especially problematic.  This project, and its companion article explain how this can easily be done if you are using some kind of framework like MVC, MVP or MVVM.
 
-This project uses my own framework, MVCI, which has similarities to both MVC and MVVM, but is structured for a Reactive design.  It also seems to be closer to how programmers generally think that MVC and MVVM should work, and splits out the responsibilities of each component in a more intuitive fashion.  You can find out more about MVCI at www.pragmaticcoding.ca/mvci
+This project uses my own framework, MVCI, which has similarities to both MVC and MVVM, but is structured for a Reactive design.  It also seems to be closer to how programmers generally think that MVC and MVVM should work, and splits out the responsibilities of each component in a more intuitive fashion.  You can find out more about MVCI in [this article](https://www.pragmaticcoding.ca/javafx/Frameworks/)
+
+## SWAPI.DEV 
+
+This project uses the wonderful "Star Wars API" at swapi.dev to provide a real-life external service which is called from some of the examples.  This allow the application to perform exactly as it would if calling application services and external API's.  swapi.dev doesn't require any authentication or tokens, so you can run the project "straight out of the box" without the need to register with the API and fiddle with the code.
+
+The service layer that connects to the external API and some screens are taken directly out of my [KotlinStarWars](https://github.com/PragmaticCoding/KotlinStarWars) project.  This is to further demonstrate the independance of enclosed functions.  As the name implies, a great deal of the code from this project is written in Kotlin.  The companion article explains some of the Kotlin code, if you aren't able to figure it out.  If you can handle Java, then Kotlin shouldn't present too much of a challenge.
 
 # Packages in the Project 
 
