@@ -4,7 +4,7 @@
 
 A sample JavaFX project to demonstrate how to create an application with multiple screens and functions, focusing on techniques to connect them together.
 
-This is the companion project to the article: http://www.pragmaticcoding.ca/multimvci.
+This is the companion project to the article: https://www.pragmaticcoding.ca/javafx/multimvci.
 
 # Introduction 
 
