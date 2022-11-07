@@ -1,0 +1,9 @@
+.root {
+   -border-colour: red;
+}
+
+.red-box-label {
+  -fx-font-size: 25px;
+  -fx-border-color: -border-colour;
+  -fx-border-width: 1px;
+}

@@ -1,0 +1,76 @@
+.root{
+    -theme-colour : #017987;
+    -theme-deep-colour : derive(-theme-colour, -15%);
+    -theme-font-colour : derive(-theme-colour, -50%);
+    -theme-deep-font-colour : derive(-theme-font-colour, -50%);
+    -theme-light-colour : derive(-theme-colour, +90%);
+    -contrast-colour : #f89642;
+    -contrast-deep-colour : derive(-contrast-colour, -20%);
+    -near-black : #252535;
+    -theme-font-family : 'Calibri';
+    -data-grey : #303040;
+}
+
+.label-text {
+    -fx-font-family : -theme-font-family;
+    -fx-font-size: 17;
+    -fx-fill: -theme-colour;
+    -fx-font-weight: bold;
+}
+
+.heading-text {
+    -fx-font-family : -theme-font-family;
+    -fx-font-size: 30;
+    -fx-fill: -contrast-colour;
+    -fx-stroke: -theme-font-colour;
+    -fx-font-weight: bold;
+}
+
+.data-text {
+   -fx-font-family : theme-font-family;
+   -fx-fill: ladder(-fx-background, white 49%, -data-grey 50%);
+   -fx-font-size: 14;
+   -fx-font-weight: 600;
+}
+
+.label-text-cell {
+   -fx-font-family : theme-font-family;
+    -fx-font-size : 14;
+    -fx-fill: ladder(-fx-background, white 49%, black 50%);
+}
+
+.data-text-cell {
+   -fx-font-family : theme-font-family;
+   -fx-font-size: 13;
+   -fx-fill: ladder(-fx-background, white 50%, black 51%);
+}
+
+.label-text-small {
+   -fx-font-family : theme-font-family;
+   -fx-font-size : 10.5;
+}
+
+.data-text-small {
+   -fx-font-family : theme-font-family;
+    -fx-font-size: 10.5;
+}
+
+.data-text:error {
+   -fx-fill : ladder(-fx-background, hotpink 49%, firebrick 50%);
+}
+
+.standard-border {
+   -fx-border-color : -theme-colour, -theme-deep-colour;
+   -fx-border-insets: 0, 0 -1.4 -1.4 0;
+   -fx-border-radius : 4px, 6px;
+   -fx-border-width : 1.5px, 0 2px 2px 0;
+}
+
+.test-border {
+    -fx-border-color : red;
+    -fx-border-width : 0.5;
+}
+.test-border2 {
+    -fx-border-color : blue;
+    -fx-border-width : 0.5;
+}

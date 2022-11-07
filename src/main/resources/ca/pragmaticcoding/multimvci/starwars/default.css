@@ -1,0 +1,150 @@
+.root{
+    -theme-colour : #30c070;
+    -theme-deep-colour : derive(-theme-colour, -15%);
+    -theme-font-colour : derive(-theme-colour, -50%);
+    -theme-deep-font-colour : derive(-theme-font-colour, -50%);
+    -theme-light-colour : derive(-theme-colour, +90%);
+    -contrast-colour : #e88052;
+    -contrast-deep-colour : derive(-contrast-colour, -20%);
+    -contrast-deepest-colour : derive(-contrast-colour, -60%);
+    -near-black : #252535;
+    -theme-font-family : 'Calibri';
+    -fx-text-box-border : -contrast-colour;
+    -fx-accent : -contrast-deep-colour;
+    -fx-focus-color : -contrast-deep-colour;
+}
+
+.choice-box > .open-button > .arrow,
+.combo-box-base > .arrow-button > .arrow {
+    -fx-background-color: yellow, yellow;
+    -fx-background-insets: 0 0 -1 0, 0;
+    -fx-padding: 0.166667em 0.333333em 0.166667em 0.333333em; /* 2 4 2 4 */
+    -fx-shape: "M 0 0 h 7 l -3.5 4 z";
+}
+
+.rounded-background {
+    -fx-border-color : white, red;
+    -fx-border-radius : 68, 60;
+    -fx-border-width : 40, 2;
+    -fx-border-insets : -32, 4;
+    -fx-background-image: url("/images/grid.jpg");
+    -fx-background-radius: 90;
+    -fx-padding: 0;
+    -fx-background-repeat : no-repeat;
+    -fx-background-size : stretch;
+    -fx-shape:"M0 13 C0 5 5 0 13 0 L86 0 C94 0 99 5 99 13 L99 86 C99 94 94 99 86 99 L13 99 C5 99 0 94 0 86Z";
+    /*-fx-shape:"M0 13,C0 5, 5 0, 13 0, L105 0, C113 0, 118 5, 118 13, L118 65, C118 73, 113 78, 105 78, L13 78, C5 78, 0 73, 0 65Z";*/
+}
+
+.label-prompt {
+    -fx-font-family : -theme-font-family;
+    -fx-font-size: 15;
+    -fx-text-fill: -theme-font-colour;
+    -fx-font-weight: bold;
+}
+
+.label-data {
+   -fx-font-family : theme-font-family;
+   -fx-text-fill: ladder(-fx-background, white 49%, black 50%);
+   -fx-font-size: 14;
+}
+
+.heading-text {
+    -fx-font-family : -theme-font-family;
+    -fx-font-size: 24;
+    -fx-fill: -contrast-deep-colour;
+    -fx-stroke: -contrast-deepest-colour;
+    -fx-font-weight: bold;
+}
+
+.sw-pane {
+  -fx-background-image : url("logo.png");
+  -fx-background-color : moccasin;
+  -fx-background-size : stretch;
+  -fx-min-width : 500;
+  -fx-min-height : 400;
+}
+
+.standard-border {
+   -fx-border-color : -theme-colour, -theme-deep-colour;
+   -fx-border-insets: 0, 0 -1.4 -1.4 0;
+   -fx-border-radius : 4px, 6px;
+   -fx-border-width : 1.5px, 0 2px 2px 0;
+}
+
+.data-text {
+   -fx-font-family : theme-font-family;
+   -fx-text-fill: ladder(-fx-background, white 49%, black 50%);
+   -fx-font-size: 14;
+}
+
+.nasa-data-text {
+   -fx-font-family : theme-font-family;
+   -fx-fill: white;
+   -fx-font-size: 15;
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+
+.label-text-cell {
+   -fx-font-family : theme-font-family;
+    -fx-font-size : 14;
+    -fx-text-fill: ladder(-fx-background, white 49%, black 50%);
+}
+
+.data-text-cell {
+   -fx-font-family : theme-font-family;
+   -fx-font-size: 13;
+   -fx-text-fill: ladder(-fx-background, white 50%, black 51%);
+}
+
+.label-text-small {
+   -fx-font-family : theme-font-family;
+   -fx-font-size : 10.5;
+}
+
+.data-text-small {
+   -fx-font-family : theme-font-family;
+    -fx-font-size: 10.5;
+}
+
+
+.test-border {
+    -fx-border-color : red;
+    -fx-border-width : 0.5;
+}
+.test-border2 {
+    -fx-border-color : blue;
+    -fx-border-width : 0.5;
+}
+
+
+.list-cell:selected {
+    -fx-background: -contrast-colour;
+    -fx-table-cell-border-color: derive(-contrast-colour, 20%);
+}
+
+.weather-box {
+    -fx-background-color: -theme-light-colour;
+    -fx-opacity : 0.8;
+}
+
+.slider-range .track {
+    -fx-background-radius: 0.12em, 0.12em, 0.166667em; /* 3 3 2 */
+    -fx-padding: 0.5em; /* 3 */
+}
+
+.slider-range .thumb {
+    -fx-background-color:
+        linear-gradient(to right, blue, red);
+    -fx-background-insets: 0;
+    -fx-background-radius: .12em; /* makes sure this remains circular */
+    -fx-padding: 0.5em;  /* 7 */
+    -fx-effect: dropshadow(two-pass-box , rgba(0, 0, 0, 0.1), 5, 0.0 , 0, 2);
+}
+
+
+
+

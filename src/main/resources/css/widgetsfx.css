@@ -1,0 +1,69 @@
+.root {
+    -theme-colour : #017987;
+    -theme-deep-colour : derive(-theme-colour, -15%);
+    -theme-font-colour : derive(-theme-colour, -50%);
+    -theme-deep-font-colour : derive(-theme-font-colour, -50%);
+    -theme-light-colour : derive(-theme-colour, +90%);
+    -contrast-colour : #7EA16B;
+    -contrast-deep-colour : derive(-contrast-colour, -20%);
+    -near-black : #271D16;
+    -data-grey : #554E56;
+    -heading-colour: -theme-colour;
+    /* Default Modena Colour Tweaks  */
+    -fx-accent: #FF8552;
+    -fx-default-button: #FFB899;
+    -fx-focus-color: #FF8552;
+}
+
+.label-h1 {
+  -fx-font-family: 'serif';
+  -fx-font-size: 64px;
+  -fx-text-fill: -heading-colour;
+}
+
+.label-h2 {
+  -fx-font-family: 'serif';
+  -fx-font-size: 48px;
+  -fx-text-fill: -heading-colour;
+}
+
+.label-h3 {
+  -fx-font-family: 'serif';
+  -fx-font-size: 32px;
+  -fx-text-fill: -heading-colour;
+}
+
+.label-h4 {
+  -fx-font-family: 'serif';
+  -fx-font-size: 24px;
+  -fx-text-fill: -heading-colour;
+}
+
+.label-prompt {
+  -fx-font-family: 'serif';
+  -fx-font-weight: bold;
+  -fx-font-size: 18px;
+  -fx-text-fill: -theme-colour;
+}
+
+.label-data {
+  -fx-font-family: 'serif';
+  -fx-font-size: 16px;
+  -fx-text-fill: -data-grey;
+}
+
+.test-border {
+  -fx-border-color: red;
+  -fx-border-width: 1px;
+}
+
+.test-border2 {
+  -fx-border-color: blue;
+  -fx-border-width: 1px;
+}
+
+.standard-border {
+  -fx-border-color: -contrast-colour;
+  -fx-border-radius: 6px;
+  -fx-border-width: 3px;
+}
