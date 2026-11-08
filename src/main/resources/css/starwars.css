@@ -27,7 +27,7 @@
     -fx-border-radius : 68, 60;
     -fx-border-width : 40, 2;
     -fx-border-insets : -32, 4;
-    -fx-background-image: url("/images/grid.jpg");
+    /* -fx-background-image: url("/images/grid.jpg"); */
     -fx-background-radius: 90;
     -fx-padding: 0;
     -fx-background-repeat : no-repeat;
@@ -58,7 +58,7 @@
 }
 
 .sw-pane {
-  -fx-background-image : url("/images/logo.png");
+  -fx-background-image : url("../images/logo.png");
   -fx-background-color : moccasin;
   -fx-background-size : stretch;
   -fx-min-width : 500;
