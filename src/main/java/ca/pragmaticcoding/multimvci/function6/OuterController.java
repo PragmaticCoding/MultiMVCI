@@ -30,8 +30,7 @@ public class OuterController {
             interactor.updateModelFromLookup();
             innerRunnable.run();
         });
-        Thread taskThread = new Thread(task);
-        taskThread.start();
+        Thread.ofVirtual().name("inner-lookup-", 0L).start(task);
     }
 
     public Region getView() {

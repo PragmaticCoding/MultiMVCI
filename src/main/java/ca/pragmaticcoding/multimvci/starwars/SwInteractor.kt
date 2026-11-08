@@ -2,8 +2,13 @@ package ca.pragmaticcoding.multimvci.starwars
 
 import ca.pragmaticcoding.multimvci.starwars.api.API
 import com.google.gson.JsonObject
+import org.slf4j.LoggerFactory
 
 class SwInteractor(private val viewModel: SwModel) {
+   companion object {
+      private val LOGGER = LoggerFactory.getLogger(SwInteractor::class.java)
+   }
+
    private var person: JsonObject? = null
    private var planet: JsonObject? = null
    private var noDataFound = false
@@ -17,9 +22,9 @@ class SwInteractor(private val viewModel: SwModel) {
          val thisPerson = people.getAsJsonArray("results")[0].asJsonObject
          person = thisPerson
          planet = api.getEntry(thisPerson.get("homeworld").asString)
-         println("Planet: $planet")
+         LOGGER.debug("Planet: {}", planet)
       } catch (e: Exception) {
-         e.printStackTrace()
+         LOGGER.error("Lookup failed for '{}'", viewModel.name.value, e)
          noDataFound = true
       }
    }

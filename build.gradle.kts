@@ -56,26 +56,20 @@ application {
 
 javafx {
     version = libs.versions.javafx.get()
-    modules("javafx.controls", "javafx.fxml")
+    modules("javafx.controls")
 }
 
 dependencies {
     implementation(libs.gson)
-    implementation(libs.httpclient)
-    implementation(libs.httpcore)
-
-    testImplementation(platform(libs.junit.bom))
-    testImplementation(libs.junit.jupiter)
-    testRuntimeOnly(libs.junit.platform.launcher)
-}
-
-tasks.test {
-    useJUnitPlatform()
+    implementation(libs.slf4j.api)
+    runtimeOnly(libs.slf4j.simple)
 }
 
 jlink {
     imageZip = layout.buildDirectory.file("distributions/app-${javafx.platform.classifier}.zip")
-    options = listOf("--strip-debug", "--compress", "zip-6", "--no-header-files", "--no-man-pages")
+    options = listOf("--strip-debug", "--compress", "zip-6", "--no-header-files", "--no-man-pages",
+        // slf4j-simple is only found via ServiceLoader, so jlink would not include it on its own
+        "--add-modules", "org.slf4j.simple")
     launcher {
         name = "app"
     }

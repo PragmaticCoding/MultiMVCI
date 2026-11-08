@@ -28,8 +28,7 @@ class SwLookupController(val planetNameProperty: StringProperty) {
          interactor.updateModelAfterLookup()
          postSearchAction.run()
       }
-      val searchThread = Thread(searchTask)
-      searchThread.start()
+      Thread.ofVirtual().name("search-character-", 0L).start(searchTask)
    }
 
    fun getView(): Region = viewBuilder.build()
