@@ -31,8 +31,7 @@ open class SwLookupBox : StackPane() {
          interactor.updateModelAfterLookup()
          postSearchAction.run()
       }
-      val searchThread = Thread(searchTask)
-      searchThread.start()
+      Thread.ofVirtual().name("search-", 0L).start(searchTask)
    }
 
    private fun buildView(): Region = HBox(6.0).apply {

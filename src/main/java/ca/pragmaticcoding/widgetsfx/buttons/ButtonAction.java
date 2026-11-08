@@ -72,9 +72,7 @@ public class ButtonAction implements Consumer<Runnable> {
             postNonGuiAction.run();
             postGuiAction.run();
         });
-        Thread backgroundThread = new Thread(backgroundTask);
-        backgroundThread.setDaemon(true);
-        backgroundThread.start();
+        Thread.ofVirtual().name("bg-task-", 0L).start(backgroundTask);
     }
 
 }

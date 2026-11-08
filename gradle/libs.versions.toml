@@ -1,0 +1,15 @@
+[versions]
+kotlin = "2.4.21"
+javafx = "25.0.5"
+gson = "2.15.0"
+slf4j = "2.0.20"
+
+[libraries]
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+javafx = { id = "org.openjfx.javafxplugin", version = "0.1.0" }
+jlink = { id = "org.beryx.jlink", version = "4.2.0" }

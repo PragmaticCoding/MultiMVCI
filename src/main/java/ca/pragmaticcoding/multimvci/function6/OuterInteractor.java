@@ -24,6 +24,7 @@ public class OuterInteractor {
             Thread.sleep(5000);
             domainObject = new DomainBroker().retrieveData(model.getProperty4());
         } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
             throw new RuntimeException(e);
         }
         progressMessages += "Lookup completed\n";

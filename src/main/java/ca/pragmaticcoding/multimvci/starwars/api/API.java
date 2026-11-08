@@ -2,69 +2,64 @@ package ca.pragmaticcoding.multimvci.starwars.api;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.HttpClientBuilder;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 
 public class API {
 
-    public API() {
-    }
+    private static final String BASE_URL = "https://swapi.dev/api/";
+    private static final Duration TIMEOUT = Duration.ofSeconds(10);
+
+    private static final HttpClient HTTP_CLIENT = HttpClient.newBuilder()
+            .connectTimeout(TIMEOUT)
+            .followRedirects(HttpClient.Redirect.NORMAL)
+            .build();
+
+    private static final Gson GSON = new Gson();
 
     public JsonObject getBuilder(String path, String searchquery) throws Exception {
-        HttpGet httpGet;
-        if (searchquery == null) {
-            httpGet = new HttpGet("https://swapi.dev/api/" + path + "/");
-        } else {
-            httpGet = new HttpGet("https://swapi.dev/api/" + path + "/?search=" + searchquery);
+        String uri = BASE_URL + path + "/";
+        if (searchquery != null) {
+            uri += "?search=" + URLEncoder.encode(searchquery, StandardCharsets.UTF_8);
         }
-        return getRequest(httpGet);
+        return getRequest(uri);
     }
 
-    private JsonObject getRequest(HttpGet getRequest) throws IOException {
-
-        HttpClient httpClient = HttpClientBuilder.create().build();
-        getRequest.addHeader("accept", "application/json");
-        HttpResponse response = httpClient.execute(getRequest);
-
-        if (response.getStatusLine().getStatusCode() != 200) {
-            throw new RuntimeException("Failed : HTTP error code : "
-                    + response.getStatusLine().getStatusCode());
+    private JsonObject getRequest(String uri) throws IOException {
+        HttpRequest request = HttpRequest.newBuilder(URI.create(uri))
+                .header("Accept", "application/json")
+                .timeout(TIMEOUT)
+                .GET()
+                .build();
+        HttpResponse<String> response;
+        try {
+            response = HTTP_CLIENT.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new IOException("Request interrupted: " + uri, e);
         }
-
-        BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader((response.getEntity().getContent())));
-
-        String line;
-        StringBuilder stringBuilder = new StringBuilder();
-        while ((line = bufferedReader.readLine()) != null) {
-            stringBuilder.append(line);
+        if (response.statusCode() != 200) {
+            throw new RuntimeException("Failed : HTTP error code : " + response.statusCode());
         }
-
-        JsonObject jsonObject = deserialize(stringBuilder.toString());
-        bufferedReader.close();
-
-        return jsonObject;
+        return deserialize(response.body());
     }
 
     public JsonObject deserialize(String json) {
-        Gson gson = new Gson();
-        JsonObject jsonClass = gson.fromJson(json, JsonObject.class);
-        return jsonClass;
+        return GSON.fromJson(json, JsonObject.class);
     }
 
     public JsonObject getEntry(String uri) throws Exception {
-        HttpGet httpGet = new HttpGet(uri);
-        return getRequest(httpGet);
+        return getRequest(uri);
     }
 
     public JsonObject innerRequest(String uri) throws IOException {
-        HttpGet httpGet = new HttpGet(uri);
-        return getRequest(httpGet);
+        return getRequest(uri);
     }
 }

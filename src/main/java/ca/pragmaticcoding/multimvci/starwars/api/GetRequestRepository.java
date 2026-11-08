@@ -1,9 +1,11 @@
 package ca.pragmaticcoding.multimvci.starwars.api;
 
 import com.google.gson.JsonObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GetRequestRepository {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(GetRequestRepository.class);
     private final API api;
 
     public GetRequestRepository(API api) {
@@ -15,7 +17,7 @@ public class GetRequestRepository {
         try {
             jsonObject = api.getBuilder(path, searchquery);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Error on getAll", e);
         }
         return jsonObject;
     }
@@ -25,7 +27,7 @@ public class GetRequestRepository {
         try {
             jsonObject = api.innerRequest(uri);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.error("Error on innerRequest", e);
         }
         return jsonObject;
     }

@@ -22,8 +22,7 @@ public abstract class ScreenController<ViewModelClass> {
             getInteractor().updateModel();
             postFetchGui.run();
         });
-        Thread fetchThread = new Thread(fetchTask);
-        fetchThread.start();
+        Thread.ofVirtual().name("fetch-", 0L).start(fetchTask);
     }
 
     protected abstract ScreenInteractor<ViewModelClass> getInteractor();

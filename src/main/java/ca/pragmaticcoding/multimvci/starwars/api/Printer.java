@@ -14,7 +14,7 @@ public class Printer {
 
     public void printDetailsFilms(JsonArray results) {
 
-        if (results.size() != 0) {
+        if (!results.isEmpty()) {
 
             for (int i = 0; i < results.size(); i++) {
 
